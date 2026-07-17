@@ -1,7 +1,19 @@
 node_modules/
 .next/
 coverage/
-.DS_Store
-*.log
 .env*
 !.env.example
+.DS_Store
+*.log
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Project management (internal)
+.kiro/
+
+# Screenshots
+screenshoot/
