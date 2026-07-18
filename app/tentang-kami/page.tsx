@@ -59,23 +59,21 @@ const milestones = [
 export default function TentangKamiPage() {
   return (
     <div className="flex flex-col">
-      {/* Page Header */}
       <PageHeader
         badge="Tentang Kami"
         title="Siapa PT. Geo Pilar Persada?"
         description="Kami adalah perusahaan teknologi rekayasa cuaca berbasis riset yang berdedikasi untuk menghadirkan solusi presipitasi adaptif demi ketahanan lingkungan dan industri Indonesia."
       />
 
-      {/* Story */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-24 bg-cloud">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}>
-              <p className="text-xs font-medium uppercase tracking-widest text-cyan-700 mb-4">Latar Belakang</p>
-              <h2 className="font-heading text-4xl font-semibold tracking-tight text-slate-900 mb-6">
+              <p className="text-xs font-medium uppercase tracking-widest text-sky mb-4">Latar Belakang</p>
+              <h2 className="font-display text-4xl font-semibold tracking-tight text-ink mb-6">
                 Lahir dari Kebutuhan Nyata
               </h2>
-              <div className="space-y-4 text-slate-600 leading-relaxed">
+              <div className="space-y-4 text-steel leading-relaxed">
                 <p>
                   PT. Geo Pilar Persada didirikan atas dasar kesadaran bahwa Indonesia — sebagai negara tropis dengan curah hujan tinggi — membutuhkan solusi pengelolaan cuaca yang jauh lebih presisi dibanding metode konvensional.
                 </p>
@@ -88,27 +86,26 @@ export default function TentangKamiPage() {
               </div>
             </motion.div>
 
-            {/* Visual — Image & Partner Logos */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}
-              className="relative h-[420px] rounded-3xl border border-slate-200 overflow-hidden flex flex-col justify-end shadow-xl"
+              className="relative h-[420px] rounded-3xl border border-steel/20 overflow-hidden flex flex-col justify-end shadow-xl"
             >
-              <Image 
-                src="/images/team/team-story.webp" 
-                alt="Tim Operasional PT Geo Pilar Persada di lapangan" 
-                fill 
-                className="object-cover" 
-                sizes="(max-width: 1024px) 100vw, 50vw" 
-                placeholder="blur" 
+              <Image
+                src="/images/team/team-story.webp"
+                alt="Tim Operasional PT Geo Pilar Persada di lapangan"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                placeholder="blur"
                 blurDataURL="data:image/webp;base64,UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA=="
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent" />
-              
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent" />
+
               <div className="relative z-10 p-8 w-full">
                 <p className="text-white/80 text-xs font-medium uppercase tracking-widest mb-4">Mitra & Sertifikasi</p>
                 <div className="flex flex-wrap gap-3">
                   {['BRIN', 'BMKG', 'DKPPU', 'TNI AU', 'PLN NP', 'Adaro'].map((tag) => (
                     <div key={tag} className="flex items-center justify-center px-4 py-2 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 shadow-sm">
-                      <span className="font-heading font-bold text-white tracking-tight">{tag}</span>
+                      <span className="font-display font-bold text-white tracking-tight">{tag}</span>
                     </div>
                   ))}
                 </div>
@@ -118,12 +115,11 @@ export default function TentangKamiPage() {
         </div>
       </section>
 
-      {/* Values */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0} className="mb-16 max-w-xl">
-            <p className="text-xs font-medium uppercase tracking-widest text-cyan-700 mb-3">Nilai Kami</p>
-            <h2 className="font-heading text-4xl font-semibold tracking-tight text-slate-900">
+            <p className="text-xs font-medium uppercase tracking-widest text-sky mb-3">Nilai Kami</p>
+            <h2 className="font-display text-4xl font-semibold tracking-tight text-ink">
               Prinsip yang Menggerakkan Kami
             </h2>
           </motion.div>
@@ -132,28 +128,27 @@ export default function TentangKamiPage() {
           >
             {values.map((v) => (
               <motion.div key={v.title} variants={fadeUp}
-                className="p-8 bg-slate-50 rounded-3xl border border-slate-200 hover:border-cyan-200 hover:shadow-md transition-all duration-300"
+                className="p-8 bg-cloud rounded-3xl border border-steel/20 hover:border-sky/40 hover:shadow-md transition-all duration-300"
               >
-                <div className="w-12 h-12 bg-cyan-50 text-cyan-700 rounded-2xl flex items-center justify-center mb-6">
+                <div className="w-12 h-12 bg-sky/10 text-sky rounded-2xl flex items-center justify-center mb-6">
                   {v.icon}
                 </div>
-                <h3 className="font-heading text-lg font-semibold text-slate-900 mb-3">{v.title}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">{v.desc}</p>
+                <h3 className="font-display text-lg font-semibold text-ink mb-3">{v.title}</h3>
+                <p className="text-sm text-steel leading-relaxed">{v.desc}</p>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Milestones */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-24 bg-cloud">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0} className="mb-16 max-w-xl">
-            <p className="text-xs font-medium uppercase tracking-widest text-cyan-700 mb-3">Perjalanan Kami</p>
-            <h2 className="font-heading text-4xl font-semibold tracking-tight text-slate-900">Tonggak Sejarah</h2>
+            <p className="text-xs font-medium uppercase tracking-widest text-sky mb-3">Perjalanan Kami</p>
+            <h2 className="font-display text-4xl font-semibold tracking-tight text-ink">Tonggak Sejarah</h2>
           </motion.div>
           <div className="relative">
-            <div className="absolute left-[3.5rem] top-0 bottom-0 w-px bg-slate-200 hidden md:block" />
+            <div className="absolute left-[3.5rem] top-0 bottom-0 w-px bg-steel/20 hidden md:block" />
             <div className="space-y-6">
               {milestones.map((m, idx) => (
                 <motion.div
@@ -163,13 +158,13 @@ export default function TentangKamiPage() {
                   className="flex gap-8 items-start"
                 >
                   <div className="shrink-0 w-28 text-right">
-                    <span className="font-heading font-bold text-cyan-700 text-lg">{m.year}</span>
+                    <span className="font-display font-bold text-sky text-lg">{m.year}</span>
                   </div>
                   <div className="hidden md:flex w-px shrink-0 items-center relative">
-                    <div className="w-3 h-3 rounded-full bg-cyan-500 border-2 border-white ring-2 ring-cyan-200 absolute -left-1.5" />
+                    <div className="w-3 h-3 rounded-full bg-sky border-2 border-white ring-2 ring-sky/30 absolute -left-1.5" />
                   </div>
                   <div className="flex-1 pb-6 md:pl-6">
-                    <p className="text-slate-700 leading-relaxed">{m.event}</p>
+                    <p className="text-steel leading-relaxed">{m.event}</p>
                   </div>
                 </motion.div>
               ))}
@@ -178,13 +173,13 @@ export default function TentangKamiPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-slate-900 text-white text-center">
+      <section className="py-20 bg-navy text-white text-center">
         <div className="max-w-2xl mx-auto px-6">
-          <h2 className="font-heading text-3xl font-semibold tracking-tight mb-5">Bergabung Bersama Mitra Kami</h2>
-          <p className="text-slate-400 leading-relaxed mb-8">
+          <h2 className="font-display text-3xl font-semibold tracking-tight mb-5">Bergabung Bersama Mitra Kami</h2>
+          <p className="text-steel leading-relaxed mb-8">
             Lebih dari sekadar penyedia jasa — kami adalah partner strategis untuk ketahanan operasional Anda.
           </p>
-          <Link className={cn(buttonVariants({ size: 'lg', variant: 'default' }), 'rounded-full bg-cyan-600 hover:bg-cyan-700 text-white gap-2 group')} href="/hubungi-kami">
+          <Link className={cn(buttonVariants({ size: 'lg', variant: 'default' }), 'rounded-full bg-sky hover:bg-sky/90 text-white gap-2 group')} href="/hubungi-kami">
               Mulai Diskusi
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </Link>

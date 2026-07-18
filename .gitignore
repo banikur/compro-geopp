@@ -1,19 +1,195 @@
-node_modules/
 .next/
-coverage/
-.env*
-!.env.example
+node_modules/
+.env.local
+.env.example
 .DS_Store
 *.log
+coverage/
+build/
+dist/
+*.tsbuildinfo
+data/*.ts
+*.backup
+*.orig
+*.diff
+*.patch
+terminal.html
+*.iml
 
-# IDE / Editor
+# Language specific
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+.pytest_cache/
+
+# Backup files
+*~
+*.bak
+*.backup
+*.bkup
+
+# IDE files
 .vscode/
 .idea/
 *.swp
 *.swo
+*.swpx
+*.swop
 
-# Project management (internal)
-.kiro/
+# OS files
+.DS_Store
+Thumbs.db
 
-# Screenshots
-screenshoot/
+# Logs and temp
+logs/
+temp/
+
+# Installation dependencies
+/node_modules
+/.vagrant
+/.chef
+/.rvm
+/.bundler
+/.gems
+/.rbenv
+/.rbenv-version
+
+# dotnet
+*.vs
+*.vsconfig
+*.vsp
+*.cache
+
+# Local env files
+.env
+.env.test
+.env.example
+.env.local
+
+# Generated files
+*.log
+*.pid
+*.seed
+
+# Documentation generated
+*.md
+*.rst
+*.txt
+
+# Cache files
+*.cache
+*.swp
+*.swo
+*.swpx
+*.swop
+
+# Temporary files
+*.tmp
+*.temp
+
+# Distribution / packaging
+*.zip
+*.tar.gz
+*.gz
+*.7z
+
+# Installer logs
+*.log
+
+# Output of the so-called Extended Long Filename command on Windows
+__extlg__
+
+# Various IDE files
+*.suo
+*.ntvs
+*.njsproj
+*.sln
+*.sw?
+
+# OSX files
+.DS_Store
+
+# Eclipse
+.project
+.settings
+
+# NetBeans
+/nbproject
+
+# VSCode
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/settings.json
+
+# OS X
+.DS_Store
+
+# package-lock.json
+
+# npm debug log
+npm-debug.log
+
+# yarn debug log
+yarn-debug.log
+
+# nx debug log
+.nx.log
+
+# webpack debug log
+webpack.log
+
+# docker logs
+*.log
+
+# npm packaged .lock file
+*.lock
+
+# temporary files and directories
+tmp/
+.vscode/
+.netlify/
+*.log
+coverage/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Environment files
+.env*.local
+.env*
+
+# Backup files
+*~
+*.*.swp
+
+# Local overrides
+.eslintcache
+
+# Private keys and secrets
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Temporary files
+*~
+*.tmp
+
+# Log files
+*.log
+
+# Generated files
+*.json
+*.jsonl
+*.log
+
+# Cache files
+*.cache
+*.swp
+
+# Uploaded files
+*.upload

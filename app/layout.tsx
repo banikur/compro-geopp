@@ -1,21 +1,76 @@
 import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
+import { IBM_Plex_Sans, IBM_Plex_Mono, Space_Grotesk } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import './globals.css';
 
-const inter = Inter({
+const ibmPlexSans = IBM_Plex_Sans({
   subsets: ['latin'],
-  variable: '--font-sans',
+  weight: ['400', '500'],
+  variable: '--font-body',
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-mono',
 });
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-  variable: '--font-heading',
+  weight: ['500', '600'],
+  variable: '--font-display',
 });
 
 const siteUrl = process.env.APP_URL ?? 'https://www.geopilarpersada.com';
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'PT. Geo Pilar Persada',
+  url: siteUrl,
+  logo: `${siteUrl}/logo.png`,
+  description:
+    'Solusi manajemen hujan, penambahan hujan, dan monitoring cuaca skala mikro berbasis drone untuk industri pertambangan, energi, dan pertanian di Indonesia.',
+  foundingDate: '2023',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+62-21-1234-5678',
+    contactType: 'customer service',
+    areaServed: 'ID',
+    availableLanguage: ['Indonesian', 'English'],
+  },
+  sameAs: [],
+  areaServed: {
+    '@type': 'Country',
+    name: 'Indonesia',
+  },
+};
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'PT. Geo Pilar Persada',
+  url: siteUrl,
+  description:
+    'Solusi modifikasi cuaca presisi berbasis drone untuk industri Indonesia.',
+  address: [
+    {
+      '@type': 'PostalAddress',
+      addressLocality: 'Jakarta',
+      addressRegion: 'DKI Jakarta',
+      addressCountry: 'ID',
+    },
+  ],
+  areaServed: 'Indonesia',
+  serviceType: [
+    'Manajemen Hujan',
+    'Penambahan Hujan',
+    'Monitoring Cuaca',
+    'Cloud Seeding',
+  ],
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -62,19 +117,28 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="id" className={`${inter.variable} ${spaceGrotesk.variable} scroll-smooth`}>
+    <html lang="id" className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} ${spaceGrotesk.variable} scroll-smooth`}>
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
         {/* Prefetch all route JS chunks on first load so subsequent navigations are instant */}
-        {['/tentang-kami', '/layanan', '/teknologi', '/proyek', '/klien', '/blog', '/hubungi-kami'].map((route) => (
+        {['/tentang-kami', '/layanan', '/teknologi', '/proyek', '/klien', '/blog', '/hubungi-kami', '/admin/help'].map((route) => (
           <link key={route} rel="prefetch" href={route} as="document" />
         ))}
       </head>
       <body
         suppressHydrationWarning
-        className="font-sans bg-background text-foreground antialiased selection:bg-cyan-900 selection:text-cyan-50"
+        className="font-body bg-background text-foreground antialiased selection:bg-brand-navy selection:text-cloud"
       >
+        <div className="h-[--nav-height]" aria-hidden="true" />
         <Navbar />
-        <main className="pt-20">{children}</main>
+        <main>{children}</main>
         <Footer />
         <Analytics />
       </body>

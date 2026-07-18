@@ -39,7 +39,6 @@ const services = [
       'Operasi siang & malam tanpa batas cuaca',
     ],
     stats: { value: '73%', label: 'rata-rata pengurangan curah hujan' },
-    color: 'cyan',
   },
   {
     id: 'penambahan-hujan',
@@ -55,7 +54,6 @@ const services = [
       'Operasi lintas wilayah hingga 15km jangkauan',
     ],
     stats: { value: '20%+', label: 'rata-rata peningkatan curah hujan' },
-    color: 'sky',
   },
   {
     id: 'monitoring-cuaca',
@@ -71,7 +69,6 @@ const services = [
       'Integrasi dengan sistem ERP/OPS klien',
     ],
     stats: { value: '24/7', label: 'monitoring non-stop sepanjang tahun' },
-    color: 'slate',
   },
 ];
 
@@ -91,14 +88,13 @@ export default function LayananPage() {
         description="Dari pengurangan hingga penambahan hujan, didukung monitoring real-time — kami menyediakan ekosistem layanan modifikasi cuaca yang komprehensif."
       />
 
-      {/* Sectors */}
-      <section className="py-10 bg-slate-50 border-b border-slate-200">
+      <section className="py-10 bg-cloud border-b border-steel/20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-wrap gap-3 items-center">
-            <span className="text-sm text-slate-500 font-medium mr-2">Sektor yang dilayani:</span>
+            <span className="text-sm text-steel font-medium mr-2">Sektor yang dilayani:</span>
             {sectors.map((s) => (
-              <div key={s.label} className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-full text-sm text-slate-700">
-                <span className="text-cyan-600">{s.icon}</span>
+              <div key={s.label} className="flex items-center gap-2 px-4 py-2 bg-white border border-steel/20 rounded-full text-sm text-ink">
+                <span className="text-sky">{s.icon}</span>
                 {s.label}
               </div>
             ))}
@@ -106,7 +102,6 @@ export default function LayananPage() {
         </div>
       </section>
 
-      {/* Service Detail Cards */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 space-y-24">
           {services.map((service, idx) => (
@@ -117,58 +112,56 @@ export default function LayananPage() {
               variants={stagger}
               className={`grid lg:grid-cols-2 gap-16 items-center ${idx % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
             >
-              {/* Text */}
               <motion.div variants={fadeUp} custom={0}>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-100 text-cyan-700 text-xs font-medium tracking-wide mb-6 uppercase">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky/10 border border-sky/30 text-sky text-xs font-medium tracking-wide mb-6 uppercase">
                   {service.tag}
                 </div>
-                <h2 className="font-heading text-4xl font-semibold tracking-tight text-slate-900 mb-3">
+                <h2 className="font-display text-4xl font-semibold tracking-tight text-ink mb-3">
                   {service.title}
                 </h2>
-                <p className="text-lg font-medium text-slate-700 mb-5">{service.headline}</p>
-                <p className="text-slate-600 leading-relaxed mb-8">{service.desc}</p>
+                <p className="text-lg font-medium text-ink mb-5">{service.headline}</p>
+                <p className="text-steel leading-relaxed mb-8">{service.desc}</p>
                 <ul className="space-y-3 mb-10">
                   {service.benefits.map((b) => (
-                    <li key={b} className="flex items-start gap-3 text-slate-700">
-                      <CheckCircle2 className="w-5 h-5 text-cyan-600 shrink-0 mt-0.5" />
+                    <li key={b} className="flex items-start gap-3 text-ink">
+                      <CheckCircle2 className="w-5 h-5 text-sky shrink-0 mt-0.5" />
                       <span>{b}</span>
                     </li>
                   ))}
                 </ul>
                 <Link href="/hubungi-kami"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-cyan-700 hover:text-cyan-800 group"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-sky hover:text-sky/80 group"
                 >
                   Konsultasikan Kebutuhan Anda
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
               </motion.div>
 
-              {/* Stat Card */}
               <motion.div variants={fadeUp} custom={1}
-                className={`${idx % 2 !== 0 ? 'lg:order-first' : ''} bg-slate-50 rounded-3xl border border-slate-200 p-12 flex flex-col items-center justify-center text-center min-h-[320px]`}
+                className={`${idx % 2 !== 0 ? 'lg:order-first' : ''} bg-cloud rounded-3xl border border-steel/20 p-12 flex flex-col items-center justify-center text-center min-h-[320px]`}
               >
-                <div className="w-20 h-20 bg-cyan-50 text-cyan-700 rounded-3xl flex items-center justify-center mb-8">
+                <div className="w-20 h-20 bg-sky/10 text-sky rounded-3xl flex items-center justify-center mb-8">
                   {service.icon}
                 </div>
-                <div className="font-heading text-7xl font-bold tracking-tighter text-slate-900 mb-3">
+                <div className="font-display text-7xl font-bold tracking-tighter text-ink mb-3">
                   {service.stats.value}
                 </div>
-                <p className="text-slate-500 text-lg">{service.stats.label}</p>
+                <p className="text-steel text-lg">{service.stats.label}</p>
               </motion.div>
             </motion.div>
           ))}
         </div>
       </section>
 
-      <section className="py-20 bg-cyan-700 text-white">
+      <section className="py-20 bg-sky text-white">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="font-heading text-3xl font-semibold tracking-tight mb-5">
+          <h2 className="font-display text-3xl font-semibold tracking-tight mb-5">
             Butuh Solusi Khusus untuk Proyek Anda?
           </h2>
-          <p className="text-cyan-100 leading-relaxed mb-8">
+          <p className="text-white/80 leading-relaxed mb-8">
             Setiap proyek memiliki kondisi atmosfer dan kebutuhan operasional yang berbeda. Tim kami siap merancang strategi yang tepat.
           </p>
-          <Link className={cn(buttonVariants({ size: 'lg', variant: 'default' }), 'rounded-full bg-white text-cyan-700 hover:bg-cyan-50 font-semibold gap-2 group')} href="/hubungi-kami">
+          <Link className={cn(buttonVariants({ size: 'lg', variant: 'default' }), 'rounded-full bg-white text-sky hover:bg-white/90 font-semibold gap-2 group')} href="/hubungi-kami">
               Hubungi Tim Kami
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </Link>

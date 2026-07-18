@@ -53,6 +53,105 @@ Official company profile website for **PT. Geo Pilar Persada**, an Indonesian co
    npm run start
    ```
 
+## 👥 User Manual
+
+### CMS Content Management
+
+This system uses **Keystatic** for headless CMS management. All content (projects, clients, services, articles) is managed via the Keystatic UI at `http://localhost:3000/admin`.
+
+#### How to Access Keystatic Admin
+1. Start the development server: `npm run dev`
+2. Visit **`http://localhost:3000/admin`** in your browser
+3. Sign in with your Keystatic credentials
+
+#### Creating New Content
+
+**Projects:**
+1. Click "New Project" in Keystatic
+2. Fill in fields: Name, Location, Type, Result, Year, Sector, Image, Description
+3. Save and sync with CMS
+
+**Clients:**
+1. Click "New Client" in Keystatic
+2. Fill in: Name, Sector, Logo (optional)
+3. Save and sync
+
+**Services:**
+1. Click "New Service" in Keystatic
+2. Fill in: Icon, Title, Subtitle, Description, Items (comma-separated), Href
+3. Save and sync
+
+**Articles:**
+1. Click "New Article" in Keystatic
+2. Fill in: Slug, Tag, Title, Excerpt, Date, Read Time, Image, Featured, Author, Content
+3. Use MDX format for rich content
+4. Save and sync
+
+#### Syncing Content
+After creating or editing any content:
+1. Wait for auto-sync (takes 2-3 seconds)
+2. Use `npm run cms:sync` manually if needed
+3. Verify changes in `data/` directory
+
+#### Content File Formats
+
+**Projects (`content/projects/*.yaml`):**
+```yaml
+name: Project Name
+location: Location
+type: Penambahan Hujan
+result: +25%
+year: 2024
+sector: Energi / PLTA
+image: /images/projects/project.webp
+description: Project description
+```
+
+**Clients (`content/clients/*.mdx`):**
+```mdx
+---
+slug: client-slug
+image: /images/clients/logo.webp
+date: 15 Juli 2025
+featured: true
+author: Author Name
+readTime: 4 menit
+tag: Category
+---
+
+# Content here...
+```
+
+**Services (`content/services/*.mdx`):**
+```mdx
+---
+slug: service-slug
+icon: Icon Name
+title: Service Title
+sub: Subtitle
+desc: Description
+items: Item1,Item2,Item3
+href: /service-link
+---
+
+# Content here...
+```
+
+**Articles (`content/articles/*.mdx`):**
+```mdx
+---
+slug: article-slug
+image: /images/articles/image.webp
+date: 15 Juli 2025
+featured: true
+author: Author Name
+readTime: 4 menit
+tag: Kategori
+---
+
+# Content here...
+```
+
 ## Available Scripts
 
 | Script | Description |
@@ -61,6 +160,260 @@ Official company profile website for **PT. Geo Pilar Persada**, an Indonesian co
 | `npm run build` | Build optimized production bundle |
 | `npm run start` | Start production server (instant navigation) |
 | `npm run lint` | Run ESLint for code quality checks |
+
+## 🔧 Troubleshooting & FAQ
+
+### Common Issues
+
+#### **Keystatic Admin Not Loading**
+**Problem:** Keystatic admin page shows loading spinner but never loads
+**Solution:** Clear browser cache and restart the development server
+```bash
+# Clear browser cache
+# Restart server
+npm run dev
+```
+
+#### **Content Changes Not Syncing**
+**Problem:** Changes made in Keystatic not appearing in `data/` files
+**Solution:** Run the sync script manually
+```bash
+npm run cms:sync
+```
+
+#### **Build Errors**
+**Problem:** `npm run build` fails with compilation errors
+**Solution:** Run linting and fix any TypeScript errors
+```bash
+npm run lint
+npm run build
+```
+
+### Keystatic Administration
+
+#### Default Login Credentials
+- **Keystatic Admin:** Visit `http://localhost:3000/admin`
+- **Username:** Usually "admin" or configured via environment variables
+- **Password:** Set during Keystatic installation, configured via `KEYSTATIC_AUTH_PASSWORD`
+
+#### Content Management Permissions
+- **Content Creator:** Can create/edit own content
+- **Content Approver:** Can approve/publish content
+- **Super Admin:** Full access to all content and settings
+
+### File Structure Reference
+
+#### Development Files
+
+**Source Directories:**
+- `app/` - Next.js application pages
+- `components/` - Reusable React components
+- `hooks/` - Custom React hooks
+- `lib/` - Utility functions
+- `scripts/` - Node.js scripts and automation tools
+
+**Content Directories:**
+- `content/projects/` - Project information (YAML format)
+- `content/clients/` - Client profiles (MDX format)
+- `content/services/` - Service details (MDX format)
+- `content/articles/` - Blog articles (MDX format)
+
+**Generated Directories:**
+- `data/` - TypeScript interfaces and exported data
+- `node_modules/` - Dependencies (do not commit)
+
+#### Configuration Files
+
+**Project Configuration:**
+- `keystatic.config.ts` - Keystatic CMS configuration
+- `next.config.ts` - Next.js settings
+- `tailwind.config.ts` - Tailwind CSS configuration
+- `tsconfig.json` - TypeScript configuration
+
+**Environment Configuration:**
+- `.env.example` - Environment variable examples
+- `.env.local` - Local environment variables (Git ignored)
+
+### Advanced Features
+
+#### Keystatic Integration
+
+**Automatic Syncing:**
+- Content changes in Keystatic automatically sync to `data/*.ts`
+- Sync occurs within 2-3 seconds after changes
+- Manual sync available via `npm run cms:sync`
+
+**Data Format:**
+- TypeScript interfaces ensure type safety
+- Automatic TypeScript generation from content files
+- Full TypeScript compilation and linting
+
+### Production Deployment
+
+#### Build Process
+```bash
+# Local development
+npm run dev
+
+# Production build
+npm run build
+npm run start
+```
+
+#### Environment Variables
+```bash
+# Required for production
+APP_URL=https://your-domain.com
+```
+
+#### Version Management
+- Semantic versioning (`npm version`) for releases
+- Automatic CHANGELOG generation
+- Git branch protection for main production branch
+
+### 📋 Frequently Asked Questions
+
+#### **Keystatic Access & Login**
+
+**Q: How do I access Keystatic admin interface?**
+A: Start the development server with `npm run dev`, then visit `http://localhost:3000/admin` in your browser. You may need to sign in with your Keystatic credentials.
+
+**Q: I can't access Keystatic, what should I do?**
+A: Common solutions:
+1. Check if the development server is running (`npm run dev`)
+2. Clear browser cache and try again
+3. Ensure your browser allows JavaScript and cookies from localhost
+4. If using Cloudflare or similar services, check firewall settings
+
+**Q: What are the default login credentials for Keystatic?**
+A: Credentials are set during Keystatic installation via the `KEYSTATIC_AUTH_PASSWORD` environment variable. Contact your system administrator if you don't have these credentials.
+
+#### **Content Management**
+
+**Q: How do I create new content in Keystatic?**
+A: For each content type:
+- **Projects:** Click "New Project", fill in all fields, save and sync
+- **Clients:** Click "New Client", fill in name, sector, logo (optional)
+- **Services:** Click "New Service", fill in icon, title, subtitle, description, items
+- **Articles:** Click "New Article", fill in slug, tag, title, excerpt, date, author, content
+
+**Q: Why are my changes not syncing from Keystatic?**
+A: Possible reasons:
+1. Network connection issues - try again after a few seconds
+2. File system permissions - ensure write permissions in `content/` directory
+3. Manual sync - run `npm run cms:sync` if auto-sync fails
+4. Keystatic configuration - check if sync is enabled in `keystatic.config.ts`
+
+**Q: What formats should content files be in?**
+A: Correct formats:
+- **Projects:** YAML format (`content/projects/*.yaml`)
+- **Clients:** MDX format (`content/clients/*.mdx`)
+- **Services:** MDX format (`content/services/*.mdx`)
+- **Articles:** MDX format (`content/articles/*.mdx`)
+
+**Q: Can I edit existing content from files directly?**
+A: Yes, you can edit content files directly:
+1. Edit files in `content/` directory
+2. Run `npm run cms:sync` to sync to data files
+3. Changes will be reflected in the application
+
+#### **Technical Issues**
+
+**Q: What should I do if `npm run dev` shows errors?**
+A: Common issues and solutions:
+1. **Port conflicts:** Change port in `package.json` if `3000` is in use
+2. **Missing dependencies:** Run `npm install` and try again
+3. **Permission issues:** Check file and directory permissions
+4. **TypeScript errors:** Run `npm run lint` to find and fix issues
+
+**Q: Why does `npm run build` fail?**
+A: Build failures typically indicate:
+1. **TypeScript compilation errors:** Run `npm run lint` to fix
+2. **Missing environment variables:** Set required variables in `.env.local`
+3. **Configuration issues:** Verify `next.config.ts`, `tailwind.config.ts`
+
+**Q: How do I fix "Module type is not specified" warnings?**
+A: Add "type": "module" to `package.json`:
+```json
+{
+  "type": "module",
+  // ... rest of package.json
+}
+```
+
+#### **Best Practices & Tips**
+
+**Q: How can I optimize my content for better performance?**
+A: Content optimization tips:
+1. **Image optimization:** Use descriptive image file names
+2. **Content structure:** Use proper YAML/MDX formatting
+3. **SEO optimization:** Fill in meta fields (titles, descriptions, images)
+4. **Sync regularly:** Use `npm run cms:sync` after changes
+
+**Q: How do I handle large amounts of content?**
+A: For bulk content operations:
+1. Use Keystatic's bulk import features
+2. Consider organizing content into categories
+3. Use the sync script for large content updates
+4. Implement version control for content files
+
+**Q: Can I backup content?**
+A: Yes, content is backed up automatically:
+1. Source files in `content/` directory are Git tracked
+2. Generated TypeScript files are auto-generated
+3. Manual backups can be made from the `content/` directory
+
+#### **Development Workflow**
+
+**Q: What's the best workflow for content updates?**
+A: Recommended workflow:
+1. Start with `npm run dev`
+2. Access Keystatic at `http://localhost:3000/admin`
+3. Make changes in Keystistic interface
+4. Wait for auto-sync (2-3 seconds)
+5. Verify in browser or use `npm run cms:sync` manually
+6. Run `npm run lint` to ensure code quality
+7. Test changes in development
+8. Build for production with `npm run build` when ready
+
+**Q: How do I move from development to production?**
+A: Production deployment:
+1. Build locally: `npm run build`
+2. Start production: `npm run start`
+3. Set environment variables (`.env.local`)
+4. Configure domain in `APP_URL`
+5. Use `pm2` or similar for process management in production
+
+**Q: How do I handle content for multiple languages?**
+A: For multi-language content:
+1. Create separate content files for each language
+2. Use appropriate language codes in file names
+3. Configure `APP_URL` for each language version
+4. Consider using Keystatic's localization features
+
+#### **Maintenance & Support**
+
+**Q: Where can I find logs or debugging information?**
+A: Log locations:
+1. Console logs from `npm run dev`
+2. Build logs from `npm run build`
+3
+3. Error logs in `./logs/` (if configured)
+4. Keystatic logs in the Keystatic interface
+
+**Q: How do I report bugs or issues?**
+A: Report issues:
+1. GitHub issues in the repository
+2. Email: pt.geopilarpersada@gmail.com
+3. Check documentation in README.md for common solutions
+4. Community forums if available
+
+**Q: How often should I run the sync script?**
+A: Recommended sync frequency:
+- **After content changes:** Always sync changes
+- **Before builds:** Sync before `npm run build`
+- **Weekly:** Regular sync for backups
+- **Monthly:** Comprehensive sync for archives
 
 ## Project Structure
 

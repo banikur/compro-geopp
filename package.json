@@ -6,11 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "cms": "next dev --port 3000",
+    "cms:sync": "npx tsx scripts/sync-keystatic.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
     "@hookform/resolvers": "^5.4.0",
+    "@keystatic/core": "^0.5.51",
+    "@keystatic/next": "^5.0.4",
     "@vercel/analytics": "^2.0.1",
     "autoprefixer": "^10.4.21",
     "class-variance-authority": "^0.7.1",
@@ -27,6 +31,7 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^16.2.10",
     "@tailwindcss/postcss": "4.1.11",
     "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^20",
