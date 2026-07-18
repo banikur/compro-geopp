@@ -52,7 +52,7 @@ export default function Error({
         <motion.p
           custom={2}
           variants={fadeUp}
-          className="text-steel mb-8 leading-relaxed"
+          className="text-steel-text mb-8 leading-relaxed"
         >
           Maaf, terjadi kesalahan pada sisi server. Tim teknis kami telah
           diberitahu dan akan memperbaikinya segera.

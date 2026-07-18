@@ -4,96 +4,111 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* ── Design tokens (design.md) ─────────────────────────────── */
+/* ── Design tokens (Design.md v2) ──────────────────────────── */
 
 :root {
-  /* Navbar — matches actual rendered height (h-20 = 80px + 1px border) */
+  /* Navbar */
   --nav-height: 81px;
 
-  /* Brand palette */
-  --brand-sky: #2E9BC7;
-  --brand-navy: #0A4C6E;
-  --ink: #10202B;
-  --cloud: #F5F8FA;
-  --steel: #8CA2AE;
-  --flare: #E08A2C;
+  /* ── Brand palette ── */
+  /* Decorative only (border, icon, badge fill, button bg) */
+  --brand-sky:   #2E9BC7;  /* 2.97:1 on cloud — NO teks langsung */
+  --brand-navy:  #0A4C6E;  /* 9.24:1 — navbar/footer bg, teks putih */
+  --steel:       #8CA2AE;  /* 2.49:1 — border/divider/ikon non-interaktif SAJA */
+  --flare:       #E08A2C;  /* 2.51:1 — badge/dekorasi, BUKAN teks/tombol teks putih */
 
-  /* Typography */
+  /* Text-safe variants (≥4.5:1 on --cloud) */
+  --sky-text:    #1C7999;  /* 4.64:1 ✅ — link inline, teks aksen */
+  --steel-text:  #56707D;  /* 4.91:1 ✅ — secondary text, caption, label */
+  --flare-text:  #96590E;  /* 5.28:1 ✅ — angka/label penting berwarna flare */
+  --flare-deep:  #B5650C;  /* white-on-bg 4.35:1 ✅ — bg tombol CTA utama */
+
+  /* Neutral */
+  --ink:   #10202B;        /* 15.58:1 ✅ — body/heading di atas bg terang */
+  --cloud: #F5F8FA;        /* background halaman */
+
+  /* ── Typography ── */
   --font-display: 'Space Grotesk', sans-serif;
-  --font-body: 'IBM Plex Sans', sans-serif;
-  --font-mono: 'IBM Plex Mono', monospace;
+  --font-body:    'IBM Plex Sans', sans-serif;
+  --font-mono:    'IBM Plex Mono', monospace;
 
-  /* Radii */
-  --radius-card: 12px;
+  /* ── Radii ── */
+  --radius-card:    12px;
   --radius-control: 8px;
 
-  /* Border */
+  /* ── Border ── */
   --border-default: 0.5px solid rgba(140, 162, 174, 0.4);
 
-  /* shadcn semantic tokens — mapped to design.md */
-  --background: oklch(0.975 0.003 230);    /* cloud #F5F8FA */
-  --foreground: oklch(0.18 0.02 220);      /* ink #10202B */
-  --card: oklch(0.975 0.003 230);
-  --card-foreground: oklch(0.18 0.02 220);
-  --popover: oklch(0.975 0.003 230);
-  --popover-foreground: oklch(0.18 0.02 220);
-  --primary: oklch(0.62 0.1 210);          /* brand-sky #2E9BC7 */
-  --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.95 0.005 230);
-  --secondary-foreground: oklch(0.18 0.02 220);
-  --muted: oklch(0.95 0.005 230);
-  --muted-foreground: oklch(0.55 0.02 220); /* steel-ish */
-  --accent: oklch(0.62 0.1 210);
-  --accent-foreground: oklch(0.98 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.82 0.02 220);          /* steel with low opacity */
-  --input: oklch(0.82 0.02 220);
-  --ring: oklch(0.62 0.1 210);
+  /* ── shadcn semantic tokens ── */
+  --background:          oklch(0.975 0.003 230);   /* cloud */
+  --foreground:          oklch(0.18  0.02  220);   /* ink */
+  --card:                oklch(0.975 0.003 230);
+  --card-foreground:     oklch(0.18  0.02  220);
+  --popover:             oklch(0.975 0.003 230);
+  --popover-foreground:  oklch(0.18  0.02  220);
+  --primary:             oklch(0.52  0.1   210);   /* brand-navy — solid button */
+  --primary-foreground:  oklch(0.98  0     0);
+  --secondary:           oklch(0.95  0.005 230);
+  --secondary-foreground:oklch(0.18  0.02  220);
+  --muted:               oklch(0.95  0.005 230);
+  --muted-foreground:    oklch(0.46  0.03  215);   /* steel-text #56707D */
+  --accent:              oklch(0.52  0.1   210);
+  --accent-foreground:   oklch(0.98  0     0);
+  --destructive:         oklch(0.577 0.245 27.325);
+  --border:              oklch(0.82  0.02  220);
+  --input:               oklch(0.82  0.02  220);
+  --ring:                oklch(0.50  0.1   210);   /* sky-text untuk focus ring */
   --radius: 0.5rem;
 }
 
 @theme inline {
-  /* Brand colors — available as text-{name}, bg-{name}, border-{name} */
-  --color-sky: var(--brand-sky);
-  --color-navy: var(--brand-navy);
-  --color-ink: var(--ink);
-  --color-cloud: var(--cloud);
+  /* ── Brand colors (decorative) ── */
+  --color-sky:   var(--brand-sky);
+  --color-navy:  var(--brand-navy);
   --color-steel: var(--steel);
   --color-flare: var(--flare);
 
-  /* Typography */
+  /* ── Text-safe variants ── */
+  --color-sky-text:   var(--sky-text);
+  --color-steel-text: var(--steel-text);
+  --color-flare-text: var(--flare-text);
+  --color-flare-deep: var(--flare-deep);
+
+  /* ── Neutral ── */
+  --color-ink:   var(--ink);
+  --color-cloud: var(--cloud);
+
+  /* ── Typography ── */
   --font-display: var(--font-display);
-  --font-body: var(--font-body);
-  --font-mono: var(--font-mono);
+  --font-body:    var(--font-body);
+  --font-mono:    var(--font-mono);
+  --font-sans:    var(--font-body);
 
-  /* Preserve shadcn font-sans alias */
-  --font-sans: var(--font-body);
+  /* ── shadcn pass-through ── */
+  --color-primary:             var(--primary);
+  --color-primary-foreground:  var(--primary-foreground);
+  --color-ring:                var(--ring);
+  --color-input:               var(--input);
+  --color-border:              var(--border);
+  --color-destructive:         var(--destructive);
+  --color-accent-foreground:   var(--accent-foreground);
+  --color-accent:              var(--accent);
+  --color-muted-foreground:    var(--muted-foreground);
+  --color-muted:               var(--muted);
+  --color-secondary-foreground:var(--secondary-foreground);
+  --color-secondary:           var(--secondary);
+  --color-popover-foreground:  var(--popover-foreground);
+  --color-popover:             var(--popover);
+  --color-card-foreground:     var(--card-foreground);
+  --color-card:                var(--card);
+  --color-foreground:          var(--foreground);
+  --color-background:          var(--background);
 
-  /* shadcn semantic color pass-through */
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --color-foreground: var(--foreground);
-  --color-background: var(--background);
-
-  /* Radii */
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
+  /* ── Radii ── */
+  --radius-sm:  calc(var(--radius) * 0.6);
+  --radius-md:  calc(var(--radius) * 0.8);
+  --radius-lg:  var(--radius);
+  --radius-xl:  calc(var(--radius) * 1.4);
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
@@ -107,5 +122,9 @@
     @apply bg-background text-foreground font-body;
     line-height: 1.65;
     font-size: 16px;
+  }
+  ::selection {
+    background-color: var(--brand-sky);
+    color: #ffffff;
   }
 }

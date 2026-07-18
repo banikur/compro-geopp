@@ -34,22 +34,22 @@ const iconMap: Record<string, React.ReactNode> = {
 
 const trustItems = [
   {
-    icon: <Target className="w-6 h-6 text-sky" />,
+    icon: <Target className="w-6 h-6 text-sky-text" />,
     title: 'Presisi Tinggi',
     desc: 'Teknologi presisi untuk hasil yang efektif dan terukur di area target.',
   },
   {
-    icon: <ShieldCheck className="w-6 h-6 text-sky" />,
+    icon: <ShieldCheck className="w-6 h-6 text-sky-text" />,
     title: 'Aman & Terkontrol',
     desc: 'Operasi aman, sesuai standar DKPPU, dan ramah lingkungan.',
   },
   {
-    icon: <BarChart3 className="w-6 h-6 text-sky" />,
+    icon: <BarChart3 className="w-6 h-6 text-sky-text" />,
     title: 'Data-Driven',
     desc: 'Keputusan berbasis data cuaca real-time AWS dan analitik radar cerdas.',
   },
   {
-    icon: <Cpu className="w-6 h-6 text-sky" />,
+    icon: <Cpu className="w-6 h-6 text-sky-text" />,
     title: 'Adaptif & Fleksibel',
     desc: 'Solusi 24 jam disesuaikan dengan kondisi mikro dan kebutuhan lapangan.',
   },
@@ -73,7 +73,7 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="max-w-xl">
               <motion.div custom={0} initial="hidden" animate="visible" variants={fadeUp}>
-                <Badge variant="outline" className="mb-8 text-sky border-sky/30 bg-sky/5 uppercase tracking-wide text-xs gap-1.5">
+                <Badge variant="outline" className="mb-8 text-sky-text border-sky/30 bg-sky/5 uppercase tracking-wide text-xs gap-1.5">
                   <Activity className="w-3.5 h-3.5" />
                   Atmospheric Mikro Engineering untuk Indonesia
                 </Badge>
@@ -84,12 +84,12 @@ export default function HomePage() {
                 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tighter text-ink leading-[1.08] mb-8"
               >
                 Sistem Pengendali Cuaca{' '}
-                <span className="text-steel">Skala Mikro Adaptif.</span>
+                <span className="text-steel-text">Skala Mikro Adaptif.</span>
               </motion.h1>
 
               <motion.p
                 custom={2} initial="hidden" animate="visible" variants={fadeUp}
-                className="text-lg md:text-xl text-steel leading-relaxed mb-10"
+                className="text-lg md:text-xl text-steel-text leading-relaxed mb-10"
               >
                 PT Geo Pilar Persada melayani jasa manajemen hujan, penambahan hujan, dan
                 monitoring cuaca dengan kombinasi hybrid{' '}
@@ -148,7 +148,7 @@ export default function HomePage() {
               <div key={item.title} className="flex flex-col gap-2">
                 {item.icon}
                 <h4 className="font-display font-semibold text-ink">{item.title}</h4>
-                <p className="text-sm text-steel leading-relaxed">{item.desc}</p>
+                <p className="text-sm text-steel-text leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -163,11 +163,11 @@ export default function HomePage() {
             variants={fadeUp} custom={0}
             className="mb-16 max-w-2xl"
           >
-            <p className="text-xs font-medium uppercase tracking-widest text-sky mb-3">Layanan Utama</p>
+            <p className="text-xs font-medium uppercase tracking-widest text-sky-text mb-3">Layanan Utama</p>
             <h2 className="font-display text-4xl md:text-5xl font-semibold tracking-tight text-ink mb-4">
               Layanan &amp; Solusi
             </h2>
-            <p className="text-lg text-steel leading-relaxed">
+            <p className="text-lg text-steel-text leading-relaxed">
               Mengendalikan iklim mikro untuk mendukung ketahanan infrastruktur,
               keberlanjutan ekosistem, dan kelancaran operasional industri.
             </p>
@@ -187,17 +187,17 @@ export default function HomePage() {
                   {iconMap[s.icon]}
                 </div>
                 <h3 className="font-display text-xl font-semibold text-ink mb-1">{s.title}</h3>
-                <p className="text-steel text-sm mb-4">{s.sub}</p>
-                <p className="text-steel leading-relaxed mb-6">{s.desc}</p>
+                <p className="text-steel-text text-sm mb-4">{s.sub}</p>
+                <p className="text-steel-text leading-relaxed mb-6">{s.desc}</p>
                 <ul className="space-y-2 mb-8">
                   {s.items.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-steel">
-                      <CheckCircle2 className="w-4 h-4 text-sky shrink-0 mt-0.5" />
+                    <li key={item} className="flex items-start gap-2 text-sm text-steel-text">
+                      <CheckCircle2 className="w-4 h-4 text-sky-text shrink-0 mt-0.5" />
                       {item}
                     </li>
                   ))}
                 </ul>
-                <Link href={s.href} className="inline-flex items-center gap-1.5 text-xs font-medium text-sky hover:text-sky/80 group/link">
+                <Link href={s.href} className="inline-flex items-center gap-1.5 text-xs font-medium text-sky-text hover:text-sky/80 group/link">
                   Selengkapnya
                   <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" />
                 </Link>
@@ -222,7 +222,7 @@ export default function HomePage() {
               <div key={stat.value}>
                 <div className="font-display text-6xl font-bold tracking-tighter text-white mb-2">{stat.value}</div>
                 <div className="font-semibold text-lg text-white mb-1">{stat.label}</div>
-                <div className="text-steel text-sm">{stat.sub}</div>
+                <div className="text-steel-text text-sm">{stat.sub}</div>
               </div>
             ))}
           </div>
@@ -232,14 +232,14 @@ export default function HomePage() {
       {/* ── Client Logos Strip ──────────────────────────────────────────── */}
       <section className="py-16 bg-white border-b border-steel/20">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-center text-xs font-medium uppercase tracking-widest text-steel mb-10">
+          <p className="text-center text-xs font-medium uppercase tracking-widest text-steel-text mb-10">
             Dipercaya oleh
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             {clients.filter(c => !['BRIN', 'BMKG', 'DKPPU', 'TNI AU'].includes(c.name)).map((client) => (
               <span
                 key={client.name}
-                className="px-5 py-2.5 bg-cloud border border-steel/20 rounded-full text-sm text-steel font-medium"
+                className="px-5 py-2.5 bg-cloud border border-steel/20 rounded-full text-sm text-steel-text font-medium"
               >
                 {client.name}
               </span>
@@ -251,13 +251,13 @@ export default function HomePage() {
       {/* ── CTA ─────────────────────────────────────────────────────────── */}
       <section className="py-28 bg-cloud">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <div className="w-16 h-16 bg-sky/10 rounded-2xl flex items-center justify-center mx-auto mb-8 text-sky">
+          <div className="w-16 h-16 bg-sky/10 rounded-2xl flex items-center justify-center mx-auto mb-8 text-sky-text">
             <Plane className="w-8 h-8" />
           </div>
           <h2 className="font-display text-4xl font-semibold tracking-tight text-ink mb-5">
             Siap Mulai Proyek Bersama Kami?
           </h2>
-          <p className="text-lg text-steel leading-relaxed mb-10">
+          <p className="text-lg text-steel-text leading-relaxed mb-10">
             Tim kami siap mendiskusikan solusi manajemen cuaca yang tepat untuk kebutuhan operasional Anda.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">

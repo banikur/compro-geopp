@@ -35,7 +35,7 @@ const PARTICLES = [
 
 const drones = [
   {
-    icon: <Zap className="w-5 h-5 text-flare" />,
+    icon: <Zap className="w-5 h-5 text-flare-text" />,
     name: 'VTOL 320',
     purpose: 'Penambah Hujan',
     desc: 'Drone Fixed Wing dengan kemampuan Vertical Take-Off & Landing. Dirancang untuk misi penyemaian awan di dataran tinggi dengan jangkauan luas.',
@@ -57,7 +57,7 @@ const drones = [
     ),
   },
   {
-    icon: <CloudRain className="w-5 h-5 text-sky" />,
+    icon: <CloudRain className="w-5 h-5 text-sky-text" />,
     name: 'Multirotor H10',
     purpose: 'Pengurang Hujan (Cloud Dome)',
     desc: 'Drone multirotor dengan sistem penyemprot hidronano presisi. Mampu membentuk "kubah penghalang" awan di atas area target secara efektif.',
@@ -129,15 +129,15 @@ export default function TeknologiPage() {
             className="mb-16"
           >
             <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 bg-sky/10 rounded-xl flex items-center justify-center text-sky">
+              <div className="w-12 h-12 bg-sky/10 rounded-xl flex items-center justify-center text-sky-text">
                 <Plane className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-xs font-medium uppercase tracking-widest text-sky">Sistem Udara</p>
+                <p className="text-xs font-medium uppercase tracking-widest text-sky-text">Sistem Udara</p>
                 <h2 className="font-display text-3xl font-semibold tracking-tight text-ink">Drone Base (Airborne)</h2>
               </div>
             </div>
-            <p className="text-steel leading-relaxed max-w-2xl ml-16">
+            <p className="text-steel-text leading-relaxed max-w-2xl ml-16">
               Penargetan awan selektif pada ketinggian dasar awan 500\u20132.000m. Berbeda dari pesawat berawak konvensional yang terbang di atas awan, drone kami melakukan penetrasi presisi langsung di bawah awan target.
             </p>
           </motion.div>
@@ -153,15 +153,15 @@ export default function TeknologiPage() {
                   {drone.icon}
                   <h3 className="font-display text-xl font-semibold text-ink">{drone.name}</h3>
                 </div>
-                <p className="text-sky text-sm font-medium mb-5">{drone.purpose}</p>
-                <p className="text-steel leading-relaxed mb-6">{drone.desc}</p>
+                <p className="text-sky-text text-sm font-medium mb-5">{drone.purpose}</p>
+                <p className="text-steel-text leading-relaxed mb-6">{drone.desc}</p>
                 <div className="mb-8 w-full max-w-[200px] mx-auto opacity-80 mix-blend-multiply">
                   {drone.illustration}
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   {drone.specs.map((spec) => (
                     <div key={spec.label} className="bg-cloud rounded-xl p-4 border border-steel/20">
-                      <p className="text-xs text-steel mb-1">{spec.label}</p>
+                      <p className="text-xs text-steel-text mb-1">{spec.label}</p>
                       <p className="font-semibold text-ink text-sm">{spec.value}</p>
                     </div>
                   ))}
@@ -177,21 +177,21 @@ export default function TeknologiPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}>
               <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 bg-ink rounded-xl flex items-center justify-center text-steel">
+                <div className="w-12 h-12 bg-ink rounded-xl flex items-center justify-center text-steel-text">
                   <RadioTower className="w-6 h-6" />
                 </div>
                 <div>
-                  <p className="text-xs font-medium uppercase tracking-widest text-sky">Sistem Darat</p>
+                  <p className="text-xs font-medium uppercase tracking-widest text-sky-text">Sistem Darat</p>
                   <h2 className="font-display text-3xl font-semibold tracking-tight">Ground Base (Permukaan)</h2>
                 </div>
               </div>
-              <p className="text-steel leading-relaxed mb-10">
+              <p className="text-steel-text leading-relaxed mb-10">
                 Groundbase Tower Flare adalah generator seeding darat berkapasitas tinggi yang memanfaatkan updraft alami angin monsun dan daratan untuk mendistribusikan partikel penyemai (CCN) langsung ke dalam awan. Fokus utama pada awan lokal dan orografis di area pegunungan.
               </p>
               <ul className="space-y-4">
                 {groundFeatures.map((feat) => (
-                  <li key={feat} className="flex items-start gap-3 text-steel">
-                    <CheckCircle2 className="w-5 h-5 text-sky shrink-0 mt-0.5" />
+                  <li key={feat} className="flex items-start gap-3 text-steel-text">
+                    <CheckCircle2 className="w-5 h-5 text-sky-text shrink-0 mt-0.5" />
                     {feat}
                   </li>
                 ))}
@@ -217,7 +217,7 @@ export default function TeknologiPage() {
               <div className="absolute top-16 right-16 w-40 h-16 bg-white/10 rounded-full blur-2xl" />
 
               <div className="relative z-10 w-24 h-48 border-x-4 border-steel/40 border-b-4 rounded-b flex flex-col items-center justify-end pb-2">
-                <RadioTower className="w-16 h-16 text-sky -mt-10" />
+                <RadioTower className="w-16 h-16 text-sky-text -mt-10" />
                 <div className="w-1 h-full bg-steel/30 mt-2" />
               </div>
 
@@ -247,7 +247,7 @@ export default function TeknologiPage() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}
             className="mb-16 max-w-xl"
           >
-            <p className="text-xs font-medium uppercase tracking-widest text-sky mb-3">Kepatuhan & Sertifikasi</p>
+            <p className="text-xs font-medium uppercase tracking-widest text-sky-text mb-3">Kepatuhan & Sertifikasi</p>
             <h2 className="font-display text-4xl font-semibold tracking-tight text-ink">
               Beroperasi dengan Standar Tertinggi
             </h2>
@@ -259,11 +259,11 @@ export default function TeknologiPage() {
               <motion.div key={c.title} variants={fadeUp}
                 className="p-8 bg-cloud rounded-3xl border border-steel/20 hover:border-sky/40 hover:shadow-md transition-all"
               >
-                <div className="w-12 h-12 bg-sky/10 text-sky rounded-2xl flex items-center justify-center mb-6">
+                <div className="w-12 h-12 bg-sky/10 text-sky-text rounded-2xl flex items-center justify-center mb-6">
                   {c.icon}
                 </div>
                 <h3 className="font-semibold text-ink mb-3">{c.title}</h3>
-                <p className="text-sm text-steel leading-relaxed">{c.desc}</p>
+                <p className="text-sm text-steel-text leading-relaxed">{c.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -275,7 +275,7 @@ export default function TeknologiPage() {
           <h2 className="font-display text-3xl font-semibold tracking-tight text-ink mb-5">
             Ingin Tahu Lebih Lanjut tentang Teknologi Kami?
           </h2>
-          <p className="text-steel leading-relaxed mb-8">
+          <p className="text-steel-text leading-relaxed mb-8">
             Tim teknis kami siap menjelaskan cara kerja sistem dan kesesuaiannya dengan kondisi lapangan Anda.
           </p>
           <Link className={cn(buttonVariants({ size: 'lg', variant: 'default' }), 'rounded-full bg-sky hover:bg-sky/90 text-white gap-2 group')} href="/hubungi-kami">

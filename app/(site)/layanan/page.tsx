@@ -91,10 +91,10 @@ export default function LayananPage() {
       <section className="py-10 bg-cloud border-b border-steel/20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-wrap gap-3 items-center">
-            <span className="text-sm text-steel font-medium mr-2">Sektor yang dilayani:</span>
+            <span className="text-sm text-steel-text font-medium mr-2">Sektor yang dilayani:</span>
             {sectors.map((s) => (
               <div key={s.label} className="flex items-center gap-2 px-4 py-2 bg-white border border-steel/20 rounded-full text-sm text-ink">
-                <span className="text-sky">{s.icon}</span>
+                <span className="text-sky-text">{s.icon}</span>
                 {s.label}
               </div>
             ))}
@@ -113,24 +113,24 @@ export default function LayananPage() {
               className={`grid lg:grid-cols-2 gap-16 items-center ${idx % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
             >
               <motion.div variants={fadeUp} custom={0}>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky/10 border border-sky/30 text-sky text-xs font-medium tracking-wide mb-6 uppercase">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky/10 border border-sky/30 text-sky-text text-xs font-medium tracking-wide mb-6 uppercase">
                   {service.tag}
                 </div>
                 <h2 className="font-display text-4xl font-semibold tracking-tight text-ink mb-3">
                   {service.title}
                 </h2>
                 <p className="text-lg font-medium text-ink mb-5">{service.headline}</p>
-                <p className="text-steel leading-relaxed mb-8">{service.desc}</p>
+                <p className="text-steel-text leading-relaxed mb-8">{service.desc}</p>
                 <ul className="space-y-3 mb-10">
                   {service.benefits.map((b) => (
                     <li key={b} className="flex items-start gap-3 text-ink">
-                      <CheckCircle2 className="w-5 h-5 text-sky shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-5 h-5 text-sky-text shrink-0 mt-0.5" />
                       <span>{b}</span>
                     </li>
                   ))}
                 </ul>
                 <Link href="/hubungi-kami"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-sky hover:text-sky/80 group"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-sky-text hover:text-sky/80 group"
                 >
                   Konsultasikan Kebutuhan Anda
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -140,13 +140,13 @@ export default function LayananPage() {
               <motion.div variants={fadeUp} custom={1}
                 className={`${idx % 2 !== 0 ? 'lg:order-first' : ''} bg-cloud rounded-3xl border border-steel/20 p-12 flex flex-col items-center justify-center text-center min-h-[320px]`}
               >
-                <div className="w-20 h-20 bg-sky/10 text-sky rounded-3xl flex items-center justify-center mb-8">
+                <div className="w-20 h-20 bg-sky/10 text-sky-text rounded-3xl flex items-center justify-center mb-8">
                   {service.icon}
                 </div>
                 <div className="font-display text-7xl font-bold tracking-tighter text-ink mb-3">
                   {service.stats.value}
                 </div>
-                <p className="text-steel text-lg">{service.stats.label}</p>
+                <p className="text-steel-text text-lg">{service.stats.label}</p>
               </motion.div>
             </motion.div>
           ))}
@@ -161,7 +161,7 @@ export default function LayananPage() {
           <p className="text-white/80 leading-relaxed mb-8">
             Setiap proyek memiliki kondisi atmosfer dan kebutuhan operasional yang berbeda. Tim kami siap merancang strategi yang tepat.
           </p>
-          <Link className={cn(buttonVariants({ size: 'lg', variant: 'default' }), 'rounded-full bg-white text-sky hover:bg-white/90 font-semibold gap-2 group')} href="/hubungi-kami">
+          <Link className={cn(buttonVariants({ size: 'lg', variant: 'default' }), 'rounded-full bg-white text-sky-text hover:bg-white/90 font-semibold gap-2 group')} href="/hubungi-kami">
               Hubungi Tim Kami
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </Link>

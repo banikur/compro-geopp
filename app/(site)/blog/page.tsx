@@ -25,11 +25,11 @@ const stagger = {
 };
 
 const tagColors: Record<string, string> = {
-  Teknologi: 'bg-sky/10 text-sky border-sky/30',
-  Inovasi: 'bg-sky/10 text-sky border-sky/30',
+  Teknologi: 'bg-sky/10 text-sky-text border-sky/30',
+  Inovasi: 'bg-sky/10 text-sky-text border-sky/30',
   'Studi Kasus': 'bg-steel/8 text-ink border-steel/20',
   Lingkungan: 'bg-steel/8 text-ink border-steel/20',
-  Regulasi: 'bg-flare/10 text-flare border-flare/30',
+  Regulasi: 'bg-flare/10 text-flare-text border-flare/30',
 };
 
 export default function BlogPage() {
@@ -48,7 +48,7 @@ export default function BlogPage() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}
             className="mb-8"
           >
-            <p className="text-xs font-medium uppercase tracking-widest text-sky">Artikel Unggulan</p>
+            <p className="text-xs font-medium uppercase tracking-widest text-sky-text">Artikel Unggulan</p>
           </motion.div>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}
             className="bg-navy text-white rounded-3xl overflow-hidden flex flex-col lg:flex-row items-stretch hover:ring-2 hover:ring-sky/30 transition-all cursor-pointer group shadow-lg"
@@ -60,12 +60,12 @@ export default function BlogPage() {
               <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs font-medium mb-6 self-start ${tagColors[featured.tag] ?? 'bg-steel/8 text-ink border-steel/20'}`}>
                 <Tag className="w-3 h-3" /> {featured.tag}
               </span>
-              <h2 className="font-display text-3xl md:text-4xl font-semibold tracking-tight mb-5 group-hover:text-sky transition-colors">
+              <h2 className="font-display text-3xl md:text-4xl font-semibold tracking-tight mb-5 group-hover:text-sky-text transition-colors">
                 {featured.title}
               </h2>
-              <p className="text-steel leading-relaxed text-lg mb-8">{featured.excerpt}</p>
+              <p className="text-steel-text leading-relaxed text-lg mb-8">{featured.excerpt}</p>
               <div className="flex items-center justify-between mt-auto">
-                <div className="flex items-center gap-6 text-sm text-steel">
+                <div className="flex items-center gap-6 text-sm text-steel-text">
                   <span>{featured.date}</span>
                   <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" /> {featured.readTime} baca</span>
                 </div>
@@ -103,11 +103,11 @@ export default function BlogPage() {
                   </div>
                 </div>
                 <div className="p-7 flex flex-col flex-1 gap-4">
-                  <h3 className="font-display font-semibold text-ink leading-snug group-hover:text-sky transition-colors">
+                  <h3 className="font-display font-semibold text-ink leading-snug group-hover:text-sky-text transition-colors">
                     {article.title}
                   </h3>
-                  <p className="text-sm text-steel leading-relaxed flex-1">{article.excerpt}</p>
-                  <div className="flex items-center justify-between pt-4 border-t border-steel/20 text-xs text-steel">
+                  <p className="text-sm text-steel-text leading-relaxed flex-1">{article.excerpt}</p>
+                  <div className="flex items-center justify-between pt-4 border-t border-steel/20 text-xs text-steel-text">
                     <span>{article.date}</span>
                     <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {article.readTime}</span>
                   </div>
@@ -123,7 +123,7 @@ export default function BlogPage() {
           <h2 className="font-display text-3xl font-semibold tracking-tight text-ink mb-4">
             Dapatkan Update Artikel Terbaru
           </h2>
-          <p className="text-steel leading-relaxed mb-8">
+          <p className="text-steel-text leading-relaxed mb-8">
             Kirimkan email Anda dan kami akan mengirimkan artikel riset &amp; teknologi cuaca terbaru langsung ke inbox Anda.
           </p>
           <form

@@ -45,7 +45,7 @@ export default function HubungiKamiPage() {
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             custom={0} initial="hidden" animate="visible" variants={fadeUp}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky/10 border border-sky/30 text-sky text-xs font-medium tracking-wide mb-6 uppercase"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky/10 border border-sky/30 text-sky-text text-xs font-medium tracking-wide mb-6 uppercase"
           >
             <MessageSquare className="w-3.5 h-3.5" /> Hubungi Kami
           </motion.div>
@@ -57,7 +57,7 @@ export default function HubungiKamiPage() {
           </motion.h1>
           <motion.p
             custom={2} initial="hidden" animate="visible" variants={fadeUp}
-            className="text-xl text-steel leading-relaxed max-w-2xl"
+            className="text-xl text-steel-text leading-relaxed max-w-2xl"
           >
             Ceritakan tantangan operasional Anda. Tim kami akan merespons dalam 1\u00D724 jam kerja dengan solusi yang relevan.
           </motion.p>

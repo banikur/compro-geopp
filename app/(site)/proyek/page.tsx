@@ -25,12 +25,12 @@ const stagger = {
 };
 
 const typeStyles: Record<string, string> = {
-  'Penambahan Hujan': 'bg-sky/10 text-sky border-sky/30',
-  'Pengurangan Hujan': 'bg-flare/10 text-flare border-flare/30',
+  'Penambahan Hujan': 'bg-sky/10 text-sky-text border-sky/30',
+  'Pengurangan Hujan': 'bg-flare/10 text-flare-text border-flare/30',
 };
 
 const resultColor = (r: string) =>
-  r.startsWith('+') ? 'text-sky' : r.startsWith('-') ? 'text-flare' : 'text-steel';
+  r.startsWith('+') ? 'text-sky-text' : r.startsWith('-') ? 'text-flare-text' : 'text-steel-text';
 
 export default function ProyekPage() {
   return (
@@ -52,7 +52,7 @@ export default function ProyekPage() {
             ].map((s) => (
               <div key={s.value}>
                 <div className="font-display text-5xl font-bold tracking-tighter text-white mb-1">{s.value}</div>
-                <div className="text-steel text-sm">{s.label}</div>
+                <div className="text-steel-text text-sm">{s.label}</div>
               </div>
             ))}
           </div>
@@ -63,7 +63,7 @@ export default function ProyekPage() {
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0} className="mb-10 text-center">
             <h2 className="font-display text-3xl font-semibold tracking-tight text-ink mb-3">Jangkauan Operasi Nasional</h2>
-            <p className="text-steel max-w-2xl mx-auto">Dari Sumatera hingga Sulawesi, kami telah menyelesaikan operasi modifikasi cuaca di berbagai pulau besar di Indonesia dengan sukses.</p>
+            <p className="text-steel-text max-w-2xl mx-auto">Dari Sumatera hingga Sulawesi, kami telah menyelesaikan operasi modifikasi cuaca di berbagai pulau besar di Indonesia dengan sukses.</p>
           </motion.div>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1} className="relative max-w-4xl mx-auto h-[400px] bg-cloud rounded-3xl border border-steel/20 overflow-hidden flex items-center justify-center p-8">
             <svg viewBox="0 0 1000 400" className="w-full h-full text-steel/30 drop-shadow-md" fill="currentColor">
@@ -98,14 +98,14 @@ export default function ProyekPage() {
             className="mb-12 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
           >
             <div>
-              <p className="text-xs font-medium uppercase tracking-widest text-sky mb-2">2024 – 2025</p>
+              <p className="text-xs font-medium uppercase tracking-widest text-sky-text mb-2">2024 – 2025</p>
               <h2 className="font-display text-3xl font-semibold tracking-tight text-ink">Semua Proyek</h2>
             </div>
             <div className="flex gap-3 flex-wrap">
-              <Badge variant="outline" className="bg-sky/10 text-sky border-sky/30 gap-1.5 py-1.5">
+              <Badge variant="outline" className="bg-sky/10 text-sky-text border-sky/30 gap-1.5 py-1.5">
                 <Droplets className="w-3.5 h-3.5" /> Penambahan Hujan
               </Badge>
-              <Badge variant="outline" className="bg-flare/10 text-flare border-flare/30 gap-1.5 py-1.5">
+              <Badge variant="outline" className="bg-flare/10 text-flare-text border-flare/30 gap-1.5 py-1.5">
                 <CloudRain className="w-3.5 h-3.5" /> Pengurangan Hujan
               </Badge>
             </div>
@@ -128,20 +128,20 @@ export default function ProyekPage() {
                 </div>
                 <div className="p-7 flex flex-col flex-1 gap-4">
                   <h3 className="font-display font-semibold text-ink text-lg leading-tight">{p.name}</h3>
-                <div className="flex items-center gap-2 text-sm text-steel">
-                  <MapPin className="w-3.5 h-3.5 text-steel" /> {p.location}
+                <div className="flex items-center gap-2 text-sm text-steel-text">
+                  <MapPin className="w-3.5 h-3.5 text-steel-text" /> {p.location}
                 </div>
                 <div className="flex items-center justify-between mt-auto pt-4 border-t border-steel/20">
                   <div>
-                    <p className="text-xs text-steel mb-0.5">Sektor</p>
+                    <p className="text-xs text-steel-text mb-0.5">Sektor</p>
                     <p className="text-sm text-ink font-medium">{p.sector}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-xs text-steel mb-0.5">Hasil</p>
+                    <p className="text-xs text-steel-text mb-0.5">Hasil</p>
                     <p className={`text-2xl font-bold font-display tracking-tighter ${resultColor(p.result)}`}>{p.result}</p>
                   </div>
                 </div>
-                <p className="text-xs text-steel">Tahun: {p.year}</p>
+                <p className="text-xs text-steel-text">Tahun: {p.year}</p>
                 </div>
               </motion.div>
             ))}
@@ -154,7 +154,7 @@ export default function ProyekPage() {
           <h2 className="font-display text-3xl font-semibold tracking-tight text-ink mb-5">
             Jadikan Proyek Anda Berikutnya
           </h2>
-          <p className="text-steel leading-relaxed mb-8">
+          <p className="text-steel-text leading-relaxed mb-8">
             Kami terbuka untuk proyek di seluruh wilayah Indonesia. Mobilisasi dalam 14 hari kerja.
           </p>
           <Link className={cn(buttonVariants({ size: 'lg', variant: 'default' }), 'rounded-full bg-navy hover:bg-navy/90 text-white gap-2 group')} href="/hubungi-kami">

@@ -115,9 +115,9 @@ const faqData: FAQItem[] = [
 
 const categoryLabels: Record<string, { label: string; color: string }> = {
   umum: { label: 'Umum', color: 'bg-steel/8 text-ink' },
-  konten: { label: 'Konten', color: 'bg-sky/10 text-sky' },
-  teknis: { label: 'Teknis', color: 'bg-flare/10 text-flare' },
-  deployment: { label: 'Deployment', color: 'bg-sky/10 text-sky' },
+  konten: { label: 'Konten', color: 'bg-sky/10 text-sky-text' },
+  teknis: { label: 'Teknis', color: 'bg-flare/10 text-flare-text' },
+  deployment: { label: 'Deployment', color: 'bg-sky/10 text-sky-text' },
 };
 
 const quickLinks = [
@@ -151,7 +151,7 @@ function FAQAccordion({ item, index }: { item: FAQItem; index: number }) {
         </div>
         <ChevronDown
           className={cn(
-            'w-5 h-5 text-steel shrink-0 ml-4 transition-transform duration-300',
+            'w-5 h-5 text-steel-text shrink-0 ml-4 transition-transform duration-300',
             isOpen && 'rotate-180'
           )}
         />
@@ -190,7 +190,7 @@ export default function AdminHelpPage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0} className="mb-12">
-            <p className="text-xs font-medium uppercase tracking-widest text-sky mb-3">Akses Cepat</p>
+            <p className="text-xs font-medium uppercase tracking-widest text-sky-text mb-3">Akses Cepat</p>
             <h2 className="font-display text-3xl font-semibold tracking-tight text-ink">Menu Utama</h2>
           </motion.div>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
@@ -201,13 +201,13 @@ export default function AdminHelpPage() {
                 <Link href={link.href}>
                   <Card className="h-full hover:border-sky/40 hover:shadow-md transition-all duration-300 cursor-pointer group">
                     <CardContent className="flex items-center gap-4 p-6">
-                      <div className="w-12 h-12 bg-sky/10 text-sky rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-sky/15 transition-colors">
+                      <div className="w-12 h-12 bg-sky/10 text-sky-text rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-sky/15 transition-colors">
                         {link.icon}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="font-display font-medium text-ink group-hover:text-sky transition-colors">{link.label}</p>
+                        <p className="font-display font-medium text-ink group-hover:text-sky-text transition-colors">{link.label}</p>
                       </div>
-                      <ArrowRight className="w-4 h-4 text-steel group-hover:text-sky group-hover:translate-x-0.5 transition-all" />
+                      <ArrowRight className="w-4 h-4 text-steel-text group-hover:text-sky-text group-hover:translate-x-0.5 transition-all" />
                     </CardContent>
                   </Card>
                 </Link>
@@ -221,7 +221,7 @@ export default function AdminHelpPage() {
       <section className="py-20 bg-cloud">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0} className="mb-12">
-            <p className="text-xs font-medium uppercase tracking-widest text-sky mb-3">Langkah Pertama</p>
+            <p className="text-xs font-medium uppercase tracking-widest text-sky-text mb-3">Langkah Pertama</p>
             <h2 className="font-display text-3xl font-semibold tracking-tight text-ink">Panduan Singkat Memulai</h2>
           </motion.div>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
@@ -265,9 +265,9 @@ export default function AdminHelpPage() {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0} className="mb-10">
-            <p className="text-xs font-medium uppercase tracking-widest text-sky mb-3">Bantuan</p>
+            <p className="text-xs font-medium uppercase tracking-widest text-sky-text mb-3">Bantuan</p>
             <h2 className="font-display text-3xl font-semibold tracking-tight text-ink mb-2">Pertanyaan yang Sering Diajukan</h2>
-            <p className="text-steel">Temukan jawaban atas pertanyaan umum seputar penggunaan CMS.</p>
+            <p className="text-steel-text">Temukan jawaban atas pertanyaan umum seputar penggunaan CMS.</p>
           </motion.div>
 
           {/* Filter Tabs */}
@@ -298,7 +298,7 @@ export default function AdminHelpPage() {
           </div>
 
           {filteredFAQ.length === 0 && (
-            <div className="text-center py-12 text-steel">
+            <div className="text-center py-12 text-steel-text">
               <HelpCircle className="w-12 h-12 mx-auto mb-4 opacity-50" />
               <p>Tidak ada pertanyaan untuk kategori ini.</p>
             </div>
@@ -310,7 +310,7 @@ export default function AdminHelpPage() {
       <section className="py-20 bg-cloud">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0} className="mb-12">
-            <p className="text-xs font-medium uppercase tracking-widest text-sky mb-3">Referensi</p>
+            <p className="text-xs font-medium uppercase tracking-widest text-sky-text mb-3">Referensi</p>
             <h2 className="font-display text-3xl font-semibold tracking-tight text-ink">Format Konten</h2>
           </motion.div>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
@@ -342,18 +342,18 @@ export default function AdminHelpPage() {
                 <Card className="h-full">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <FileText className="w-4 h-4 text-sky" />
+                      <FileText className="w-4 h-4 text-sky-text" />
                       {fmt.title}
                     </CardTitle>
-                    <p className="text-xs text-steel font-mono mt-1">{fmt.format}</p>
+                    <p className="text-xs text-steel-text font-mono mt-1">{fmt.format}</p>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-1.5">
                       {fmt.fields.map((f) => (
                         <li key={f} className="text-sm text-ink/70 flex items-start gap-2">
-                          <span className="text-sky mt-1.5 text-xs">●</span>
+                          <span className="text-sky-text mt-1.5 text-xs">●</span>
                           <code className="text-xs bg-steel/8 px-1.5 py-0.5 rounded text-ink">{f.split(' — ')[0]}</code>
-                          <span className="text-steel">{f.split(' — ')[1]}</span>
+                          <span className="text-steel-text">{f.split(' — ')[1]}</span>
                         </li>
                       ))}
                     </ul>
@@ -369,7 +369,7 @@ export default function AdminHelpPage() {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0} className="mb-12">
-            <p className="text-xs font-medium uppercase tracking-widest text-sky mb-3">Referensi Script</p>
+            <p className="text-xs font-medium uppercase tracking-widest text-sky-text mb-3">Referensi Script</p>
             <h2 className="font-display text-3xl font-semibold tracking-tight text-ink">Perintah yang Sering Digunakan</h2>
           </motion.div>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}
@@ -384,8 +384,8 @@ export default function AdminHelpPage() {
                 { cmd: 'npm run lint', desc: 'Jalankan pengecekan kualitas kode' },
               ].map((s) => (
                 <div key={s.cmd} className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-                  <code className="font-mono text-sm text-sky shrink-0">{s.cmd}</code>
-                  <span className="text-steel text-sm">— {s.desc}</span>
+                  <code className="font-mono text-sm text-sky-text shrink-0">{s.cmd}</code>
+                  <span className="text-steel-text text-sm">— {s.desc}</span>
                 </div>
               ))}
             </div>
@@ -397,7 +397,7 @@ export default function AdminHelpPage() {
       <section className="py-20 bg-navy text-white text-center">
         <div className="max-w-2xl mx-auto px-6">
           <h2 className="font-display text-3xl font-semibold tracking-tight mb-5">Siap Mengelola Konten?</h2>
-          <p className="text-steel leading-relaxed mb-8">
+          <p className="text-steel-text leading-relaxed mb-8">
             Buka Keystatic admin untuk mulai membuat, mengedit, dan mengelola konten website Anda.
           </p>
           <Link

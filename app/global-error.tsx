@@ -59,7 +59,7 @@ export default function GlobalError({
             <motion.p
               custom={2}
               variants={fadeUp}
-              className="text-steel mb-8 leading-relaxed"
+              className="text-steel-text mb-8 leading-relaxed"
             >
               Maaf, terjadi kesalahan kritis. Tim pengembangan telah diberitahu.
               Silakan coba muat ulang halaman ini atau kunjungi kembali nanti.

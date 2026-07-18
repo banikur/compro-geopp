@@ -69,11 +69,11 @@ export default function TentangKamiPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}>
-              <p className="text-xs font-medium uppercase tracking-widest text-sky mb-4">Latar Belakang</p>
+              <p className="text-xs font-medium uppercase tracking-widest text-sky-text mb-4">Latar Belakang</p>
               <h2 className="font-display text-4xl font-semibold tracking-tight text-ink mb-6">
                 Lahir dari Kebutuhan Nyata
               </h2>
-              <div className="space-y-4 text-steel leading-relaxed">
+              <div className="space-y-4 text-steel-text leading-relaxed">
                 <p>
                   PT. Geo Pilar Persada didirikan atas dasar kesadaran bahwa Indonesia — sebagai negara tropis dengan curah hujan tinggi — membutuhkan solusi pengelolaan cuaca yang jauh lebih presisi dibanding metode konvensional.
                 </p>
@@ -118,7 +118,7 @@ export default function TentangKamiPage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0} className="mb-16 max-w-xl">
-            <p className="text-xs font-medium uppercase tracking-widest text-sky mb-3">Nilai Kami</p>
+            <p className="text-xs font-medium uppercase tracking-widest text-sky-text mb-3">Nilai Kami</p>
             <h2 className="font-display text-4xl font-semibold tracking-tight text-ink">
               Prinsip yang Menggerakkan Kami
             </h2>
@@ -130,11 +130,11 @@ export default function TentangKamiPage() {
               <motion.div key={v.title} variants={fadeUp}
                 className="p-8 bg-cloud rounded-3xl border border-steel/20 hover:border-sky/40 hover:shadow-md transition-all duration-300"
               >
-                <div className="w-12 h-12 bg-sky/10 text-sky rounded-2xl flex items-center justify-center mb-6">
+                <div className="w-12 h-12 bg-sky/10 text-sky-text rounded-2xl flex items-center justify-center mb-6">
                   {v.icon}
                 </div>
                 <h3 className="font-display text-lg font-semibold text-ink mb-3">{v.title}</h3>
-                <p className="text-sm text-steel leading-relaxed">{v.desc}</p>
+                <p className="text-sm text-steel-text leading-relaxed">{v.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -144,7 +144,7 @@ export default function TentangKamiPage() {
       <section className="py-24 bg-cloud">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0} className="mb-16 max-w-xl">
-            <p className="text-xs font-medium uppercase tracking-widest text-sky mb-3">Perjalanan Kami</p>
+            <p className="text-xs font-medium uppercase tracking-widest text-sky-text mb-3">Perjalanan Kami</p>
             <h2 className="font-display text-4xl font-semibold tracking-tight text-ink">Tonggak Sejarah</h2>
           </motion.div>
           <div className="relative">
@@ -158,13 +158,13 @@ export default function TentangKamiPage() {
                   className="flex gap-8 items-start"
                 >
                   <div className="shrink-0 w-28 text-right">
-                    <span className="font-display font-bold text-sky text-lg">{m.year}</span>
+                    <span className="font-display font-bold text-sky-text text-lg">{m.year}</span>
                   </div>
                   <div className="hidden md:flex w-px shrink-0 items-center relative">
                     <div className="w-3 h-3 rounded-full bg-sky border-2 border-white ring-2 ring-sky/30 absolute -left-1.5" />
                   </div>
                   <div className="flex-1 pb-6 md:pl-6">
-                    <p className="text-steel leading-relaxed">{m.event}</p>
+                    <p className="text-steel-text leading-relaxed">{m.event}</p>
                   </div>
                 </motion.div>
               ))}
@@ -176,7 +176,7 @@ export default function TentangKamiPage() {
       <section className="py-20 bg-navy text-white text-center">
         <div className="max-w-2xl mx-auto px-6">
           <h2 className="font-display text-3xl font-semibold tracking-tight mb-5">Bergabung Bersama Mitra Kami</h2>
-          <p className="text-steel leading-relaxed mb-8">
+          <p className="text-steel-text leading-relaxed mb-8">
             Lebih dari sekadar penyedia jasa — kami adalah partner strategis untuk ketahanan operasional Anda.
           </p>
           <Link className={cn(buttonVariants({ size: 'lg', variant: 'default' }), 'rounded-full bg-sky hover:bg-sky/90 text-white gap-2 group')} href="/hubungi-kami">

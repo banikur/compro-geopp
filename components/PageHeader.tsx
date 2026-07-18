@@ -23,7 +23,7 @@ export default function PageHeader({ badge, title, description }: PageHeaderProp
     <section className="py-24 bg-cloud border-b border-steel/40">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div custom={0} initial="hidden" animate="visible" variants={fadeUp}>
-          <Badge variant="outline" className="mb-6 text-sky border-sky/30 bg-sky/5 uppercase tracking-wide text-xs">
+          <Badge variant="outline" className="mb-6 text-sky-text border-sky/30 bg-sky/5 uppercase tracking-wide text-xs">
             {badge}
           </Badge>
         </motion.div>
@@ -35,7 +35,7 @@ export default function PageHeader({ badge, title, description }: PageHeaderProp
         </motion.h1>
         <motion.p
           custom={2} initial="hidden" animate="visible" variants={fadeUp}
-          className="text-xl text-steel leading-relaxed max-w-2xl"
+          className="text-xl text-steel-text leading-relaxed max-w-2xl"
         >
           {description}
         </motion.p>

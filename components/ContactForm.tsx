@@ -113,19 +113,19 @@ export default function ContactForm() {
         className="lg:col-span-2 space-y-10"
       >
         <div>
-          <p className="text-xs font-medium uppercase tracking-widest text-sky mb-5">
+          <p className="text-xs font-medium uppercase tracking-widest text-sky-text mb-5">
             Kontak Langsung
           </p>
           <a
             href="mailto:pt.geopilarpersada@gmail.com"
             className="flex items-start gap-4 group"
           >
-            <div className="w-12 h-12 bg-cloud border border-steel/40 rounded-2xl flex items-center justify-center text-steel group-hover:border-sky group-hover:text-sky transition-all shrink-0">
+            <div className="w-12 h-12 bg-cloud border border-steel/40 rounded-2xl flex items-center justify-center text-steel-text group-hover:border-sky group-hover:text-sky-text transition-all shrink-0">
               <Mail className="w-5 h-5" />
             </div>
             <div>
-              <p className="text-xs text-steel mb-1">Email Resmi</p>
-              <p className="font-medium text-ink group-hover:text-sky transition-colors text-sm">
+              <p className="text-xs text-steel-text mb-1">Email Resmi</p>
+              <p className="font-medium text-ink group-hover:text-sky-text transition-colors text-sm">
                 pt.geopilarpersada@gmail.com
               </p>
             </div>
@@ -133,37 +133,37 @@ export default function ContactForm() {
         </div>
 
         <div className="flex items-start gap-4">
-          <div className="w-12 h-12 bg-cloud border border-steel/40 rounded-2xl flex items-center justify-center text-steel shrink-0">
+          <div className="w-12 h-12 bg-cloud border border-steel/40 rounded-2xl flex items-center justify-center text-steel-text shrink-0">
             <Clock className="w-5 h-5" />
           </div>
           <div>
-            <p className="text-xs text-steel mb-1">Waktu Respons</p>
+            <p className="text-xs text-steel-text mb-1">Waktu Respons</p>
             <p className="font-medium text-ink text-sm">1×24 jam kerja</p>
-            <p className="text-xs text-steel mt-1">Mobilisasi armada dalam 14 hari kerja</p>
+            <p className="text-xs text-steel-text mt-1">Mobilisasi armada dalam 14 hari kerja</p>
           </div>
         </div>
 
         <div>
-          <p className="text-xs font-medium uppercase tracking-widest text-sky mb-5">
+          <p className="text-xs font-medium uppercase tracking-widest text-sky-text mb-5">
             Lokasi Kami
           </p>
           <div className="space-y-4">
             {offices.map((office) => (
               <div key={office.type} className="bg-cloud border border-steel/40 rounded-2xl p-6">
-                <p className="text-xs font-semibold uppercase tracking-wide text-sky mb-3">
+                <p className="text-xs font-semibold uppercase tracking-wide text-sky-text mb-3">
                   {office.type}
                 </p>
                 <div className="flex items-start gap-3 mb-3">
-                  <MapPin className="w-4 h-4 text-steel shrink-0 mt-0.5" />
-                  <address className="not-italic text-sm text-steel leading-relaxed">
+                  <MapPin className="w-4 h-4 text-steel-text shrink-0 mt-0.5" />
+                  <address className="not-italic text-sm text-steel-text leading-relaxed">
                     {office.address}
                   </address>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-steel shrink-0" />
+                  <Phone className="w-4 h-4 text-steel-text shrink-0" />
                   <a
                     href={`tel:${office.tel}`}
-                    className="text-sm text-ink hover:text-sky transition-colors font-mono"
+                    className="text-sm text-ink hover:text-sky-text transition-colors font-mono"
                   >
                     {office.phone}
                   </a>
@@ -184,12 +184,12 @@ export default function ContactForm() {
           {submitted ? (
             <div className="flex flex-col items-center justify-center py-16 text-center">
               <div className="w-16 h-16 bg-sky/10 rounded-full flex items-center justify-center mb-6">
-                <CheckCircle2 className="w-8 h-8 text-sky" />
+                <CheckCircle2 className="w-8 h-8 text-sky-text" />
               </div>
               <h3 className="font-display text-2xl font-semibold text-ink mb-3">
                 Pesan Terkirim!
               </h3>
-              <p className="text-steel max-w-sm leading-relaxed">
+              <p className="text-steel-text max-w-sm leading-relaxed">
                 Terima kasih telah menghubungi kami. Tim kami akan merespons pesan Anda dalam 1×24 jam kerja.
               </p>
             </div>
@@ -204,7 +204,7 @@ export default function ContactForm() {
                 <h2 className="font-display text-2xl font-semibold text-ink">
                   Kirim Pesan
                 </h2>
-                <p className="text-steel text-sm mt-1">
+                <p className="text-steel-text text-sm mt-1">
                   Semua kolom bertanda * wajib diisi.
                 </p>
               </div>

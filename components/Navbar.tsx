@@ -1,9 +1,10 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { CloudRain, Menu, X, HelpCircle } from 'lucide-react';
+import { Menu, X, HelpCircle } from 'lucide-react';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -26,24 +27,26 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <div className="w-8 h-8 rounded-lg bg-navy flex items-center justify-center">
-            <CloudRain className="w-4 h-4 text-white" />
-          </div>
-          <span className="font-display font-semibold text-lg tracking-tight text-ink">
-            Geo Pilar Persada
-          </span>
+          <Image
+            src="/images/logo_upscale.png"
+            alt="Logo PT. Geo Pilar Persada"
+            width={200}
+            height={50}
+            className="object-contain"
+            priority
+          />
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden lg:flex items-center gap-1 text-sm font-medium text-steel">
+        <div className="hidden lg:flex items-center gap-1 text-sm font-medium text-steel-text">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={`px-3 py-2 rounded-lg transition-colors ${
                 pathname === link.href
-                  ? 'text-sky bg-sky/10'
-                  : 'hover:text-sky hover:bg-steel/10'
+                  ? 'text-sky-text bg-sky/10'
+                  : 'hover:text-sky-text hover:bg-steel/10'
               }`}
             >
               {link.label}
@@ -54,7 +57,7 @@ export default function Navbar() {
         {/* CTA */}
         <div className="hidden lg:flex items-center gap-3">
           {pathname.startsWith('/admin') && (
-            <Link href="/admin/help" className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-steel hover:text-sky hover:bg-steel/10 rounded-lg transition-colors">
+            <Link href="/admin/help" className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-steel-text hover:text-sky-text hover:bg-steel/10 rounded-lg transition-colors">
               <HelpCircle className="w-4 h-4" />
               Panduan
             </Link>
@@ -84,7 +87,7 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
               className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
                 pathname === link.href
-                  ? 'text-sky bg-sky/10'
+                  ? 'text-sky-text bg-sky/10'
                   : 'text-ink hover:bg-steel/10'
               }`}
             >
