@@ -36,7 +36,7 @@ const organizationSchema = {
   foundingDate: '2023',
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: '+62-21-1234-5678',
+    telephone: '+62-813-2825-9928',
     contactType: 'customer service',
     areaServed: 'ID',
     availableLanguage: ['Indonesian', 'English'],
@@ -58,9 +58,20 @@ const localBusinessSchema = {
   address: [
     {
       '@type': 'PostalAddress',
-      addressLocality: 'Jakarta',
-      addressRegion: 'DKI Jakarta',
+      addressLocality: 'Sleman',
+      addressRegion: 'D.I. Yogyakarta',
       addressCountry: 'ID',
+      streetAddress:
+        'Perum Damai Regency Kavling A1 Lantai 2, Gg. Pusung Utama RT.011/RW.29, Sinduharjo, Ngaglik',
+      postalCode: '55581',
+    },
+    {
+      '@type': 'PostalAddress',
+      addressLocality: 'Bogor',
+      addressRegion: 'Jawa Barat',
+      addressCountry: 'ID',
+      streetAddress: 'Jl. Bukit Dago BDU No 36-40, Rawakalong, Gunung Sindur',
+      postalCode: '16340',
     },
   ],
   areaServed: 'Indonesia',
@@ -136,7 +147,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         suppressHydrationWarning
         className="font-body bg-background text-foreground antialiased selection:bg-brand-navy selection:text-cloud"
       >
-        <div className="h-[--nav-height]" aria-hidden="true" />
+        <div className="h-[var(--nav-height)]" aria-hidden="true" />
         <Navbar />
         <main>{children}</main>
         <Footer />

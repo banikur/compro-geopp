@@ -68,6 +68,7 @@ const offices = [
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [apiError, setApiError] = useState<string | null>(null);
 
   const {
     register,
@@ -78,10 +79,29 @@ export default function ContactForm() {
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = async (_data: ContactFormValues) => {
-    // TODO: wire up to an API route or email service (e.g. Resend, Nodemailer)
-    await new Promise((r) => setTimeout(r, 600)); // simulate network
-    setSubmitted(true);
+  const onSubmit = async (data: ContactFormValues) => {
+    setApiError(null);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        const errorMessage = result.errors
+          ? Object.values(result.errors).flat().join(', ')
+          : result.message ?? 'Gagal mengirim pesan. Silakan coba lagi.';
+        setApiError(errorMessage);
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setApiError('Terjadi kesalahan jaringan. Silakan periksa koneksi dan coba lagi.');
+    }
   };
 
   return (
@@ -175,6 +195,11 @@ export default function ContactForm() {
             </div>
           ) : (
             <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-6">
+              {apiError && (
+                <div className="rounded-xl bg-red-50 border border-red-200 p-4 text-sm text-red-700" role="alert">
+                  {apiError}
+                </div>
+              )}
               <div className="mb-2">
                 <h2 className="font-display text-2xl font-semibold text-ink">
                   Kirim Pesan

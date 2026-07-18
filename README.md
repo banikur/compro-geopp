@@ -509,6 +509,49 @@ touch app/new-page/page.tsx app/new-page/layout.tsx
 npx shadcn@latest add [component-name]
 ```
 
+## Audit & Known Issues
+
+A full audit was conducted on **2026-07-18**. See [`todo.md`](./todo.md) for the complete report with file-level details and recommended fixes.
+
+### Summary
+
+| Severity | Count |
+|----------|-------|
+| Critical | 4 |
+| High | 6 |
+| Medium | 10 |
+| Low | 8 |
+| Info | 7 |
+
+### Top 3 Immediate Priorities
+
+1. **Timing-safe comparison** in `middleware.ts` — admin auth uses `===` instead of `crypto.timingSafeEqual`, enabling timing side-channel attacks
+2. **HTML injection in emails** — `app/api/contact/route.ts` interpolates user input directly into HTML email body without sanitization
+3. **Default admin credentials** — `middleware.ts` falls back to `admin/admin` when env vars are unset
+
+### Key Findings
+
+- **No security headers** configured (CSP, HSTS, X-Frame-Options missing)
+- **No rate limiting** on contact form endpoint
+- **Admin route `/admin/help` leaked** via prefetch in `<head>`
+- **Homepage is fully client-rendered** — hurts SEO and Core Web Vitals
+- **`.gitignore` excludes `*.md`, `*.json`, and `*.lock`** — needs cleanup
+- **No automated tests** exist
+- **Duplicate Zod schema** in client and server (drift risk)
+
+### Running the Audit
+
+```bash
+# Check for dependency vulnerabilities
+npm audit
+
+# Lint for code quality
+npm run lint
+
+# Type check
+npx tsc --noEmit
+```
+
 ## Contact
 
 - **Email:** pt.geopilarpersada@gmail.com
