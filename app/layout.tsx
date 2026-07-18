@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import { IBM_Plex_Sans, IBM_Plex_Mono, Space_Grotesk } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import './globals.css';
 
 const ibmPlexSans = IBM_Plex_Sans({
@@ -139,7 +137,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
         {/* Prefetch all route JS chunks on first load so subsequent navigations are instant */}
-        {['/tentang-kami', '/layanan', '/teknologi', '/proyek', '/klien', '/blog', '/hubungi-kami', '/admin/help'].map((route) => (
+        {['/tentang-kami', '/layanan', '/teknologi', '/proyek', '/klien', '/blog', '/hubungi-kami'].map((route) => (
           <link key={route} rel="prefetch" href={route} as="document" />
         ))}
       </head>
@@ -147,10 +145,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         suppressHydrationWarning
         className="font-body bg-background text-foreground antialiased selection:bg-brand-navy selection:text-cloud"
       >
-        <div className="h-[var(--nav-height)]" aria-hidden="true" />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        {children}
         <Analytics />
       </body>
     </html>
